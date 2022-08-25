@@ -6,7 +6,7 @@ import pandas as pd
 
 def fetch():
     data=pd.read_csv('India.csv', header=0)
-    api_key="e541809143018142846ba5cd62c1a73e"
+    api_key="Insert api key here"
     # df=pd.DataFrame(columns=['City','Lat','Lng','Date','CO','NO','NO2','O3','SO2','PM2_5','PM10','NH3'])
     data_csv=[]
     for index, rows in data.iterrows():
