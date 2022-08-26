@@ -9,7 +9,11 @@ Packages included:-
     The notebook contains codes to download data from the official government website for India. More details in the notebook
 2. India_Cities.csv
     The Excel Sheet contains information about the State - City relationship, and the number of stations in each city.
-3. GCS Bucket Link -
+3. India_City_Coordinates.csv  
+    Contains the coordinates for India Cities
+4. Fetch_Data_API  
+    The notebook contains codes to fetch data from OpenweatherMap, average the data daywise and store it in csv format
+5. GCS Bucket Link - [GCS](https://console.cloud.google.com/storage/browser/air_quality_macrox?project=macrox01).
     The GCS bucket contains data downloaded for all the above cities in India_Cities.csv. Each folder (City_Name) contains data for all the stations in that city
 
 ## Data CleanUp
