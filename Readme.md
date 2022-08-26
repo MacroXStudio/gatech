@@ -5,9 +5,9 @@
 The repository contains information and codes for Air_Quality - Economic Progress project
 
 Packages included:- 
-1. Fetch_gases_official_IN
+1. Fetch_gases_official_IN  
     The notebook contains codes to download data from the official government website for India. More details in the notebook
-2. India_Cities.csv
+2. India_Cities.csv  
     The Excel Sheet contains information about the State - City relationship, and the number of stations in each city.
 3. India_City_Coordinates.csv  
     Contains the coordinates for India Cities
