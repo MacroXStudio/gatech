@@ -1,4 +1,4 @@
-# MacroX
+﻿# MacroX
 ---
 ## Introduction
 
@@ -72,3 +72,44 @@ The data in the GCS bucket is in the form of an Excel Workbook. For each city, t
 
 3. A lot of stations don't have all the gases available.   
     For Example, CO is missing in a lot of stations. Check the official website to fetch CO if it exists
+	
+## Data Notes
+
+1. NO2 and SO2 satellite data has -1.270000e+30 as the filler value which is used to fill missed or bad measurements. This value should be treated as missing value. Similarly CO satellite data has -9999 as filler value.
+2. Below is the graph for CO and NO2 data <b>without</b> replacing filler values.
+
+```
+import pandas as pd
+import plotly.express as px
+
+df = pd.read_csv('https://storage.googleapis.com/air_quality_macrox/satellite_data/CO_India.csv', index_col = 0, parse_dates = ['date'])
+df = df.sort_values(['date'])
+fig = px.line(df, x="date", y="Mumbai", title='CO India')
+fig.show()
+
+```
+
+
+![co_india](https://user-images.githubusercontent.com/32074154/191332514-b27438ae-6e91-48b4-82f1-028870530a91.PNG)
+
+
+ ![no2_india](https://user-images.githubusercontent.com/32074154/191332706-7554254b-fb8a-4c94-af2e-b85a89b576d7.PNG)
+
+
+After <b>replacing</b> the filler values with None:
+
+```
+import pandas as pd
+import plotly.express as px
+
+df = pd.read_csv('https://storage.googleapis.com/air_quality_macrox/satellite_data/CO_India.csv', index_col = 0, parse_dates = ['date'])
+df = df.replace(-9999.0, 0)
+df = df.sort_values(['date'])
+fig = px.line(df, x="date", y="Mumbai", title='CO India')
+fig.show()
+```
+
+![co_none](https://user-images.githubusercontent.com/32074154/191332804-3abff951-3e74-4295-bcf5-b73786dba568.PNG)
+
+![no2_none](https://user-images.githubusercontent.com/32074154/191332851-c5efdc7a-e84d-4ae1-83b9-17109c1f9ef5.PNG)
+
